@@ -3,6 +3,10 @@ import BackgroundElement from './components/BackgroundElement';
 import Navbar from './components/Navbar';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { Github, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { FaPython ,FaJava, FaHtml5, FaDocker, FaGit, FaReact, FaMicrochip} from "react-icons/fa";
+import { SiCplusplus, SiTensorflow, SiRos, SiFlask } from 'react-icons/si';
+import { PiCalculatorThin } from "react-icons/pi";
+
 
 function App() {
   return (
@@ -103,25 +107,26 @@ function App() {
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {[
-                  "Python",
-                  "Java",
-                  "C/C++",
-                  "HTML/CSS",
-                  "Tensorflow/Pytorch",
-                  "Embedded systems",
-                  "ROS",
-                  "Docker",
-                  "Git",
-                  "MATLAB",
-                  "React.js ",
-                  "Flask"
+                  { name: "Python", icon: <FaPython className="text-4xl text-blue-500 mx-auto"/> },
+                  { name: "Java", icon: <FaJava className="text-4xl text-red-600 mx-auto" /> },
+                  { name: "C/C++", icon: <SiCplusplus className="text-4xl text-blue-700 mx-auto" /> },
+                  { name: "HTML/CSS", icon: <FaHtml5 className="text-4xl text-orange-500 mx-auto" /> },
+                  { name: "TensorFlow/PyTorch", icon: <SiTensorflow className="text-4xl text-yellow-500 mx-auto" /> },
+                  { name: "Embedded Systems", icon: <FaMicrochip className="text-4xl text-green-600 mx-auto" /> },
+                  { name: "ROS", icon: <SiRos className="text-4xl text-pink-600 mx-auto" /> },
+                  { name: "Docker", icon: <FaDocker className="text-4xl text-blue-400 mx-auto" /> },
+                  { name: "Git", icon: <FaGit className="text-4xl text-red-500 mx-auto" /> },
+                  { name: "MATLAB", icon: <PiCalculatorThin className="text-4xl text-orange-600 mx-auto" /> },
+                  { name: "React.js", icon: <FaReact className="text-4xl text-cyan-400 mx-auto" /> },
+                  { name: "Flask", icon: <SiFlask className="text-4xl text-gray-500 mx-auto" /> }
                 ].map((skill, index) => (
                   <div 
                     key={index}
-                    className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-md hover:shadow-lg transition-shadow"
+                    className="bg-white dark:bg-gray-800 rounded-lg p-6 text-center shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 group cursor-pointer"
                   >
-                    <p className="text-gray-900 dark:text-white font-medium">
-                      {skill}
+                    <div className="flex flex-col items-center gap-3">{skill.icon}</div>
+                    <p className="text-gray-900 dark:text-white font-medium group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                      {skill.name}
                     </p>
                   </div>
                 ))}
